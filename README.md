@@ -1,2 +1,5 @@
 # Retire
-Robust Expectile Regression with various convex penalties
+Estimation and inference methods for robust expectile (robust asymmetric least squares) regression ([Man et al., 2022](https://arxiv.org/abs/2212.05562)):
+$$\hat{\beta} \in {\rm{argmin}} \frac{1}{n}\sum_{i=1}^n L_{\tau, \gamma}(y_i - x_i^T \beta) + P(\beta), $$
+where $L_{\tau, \gamma}(u) = |\tau - 1(u<0)| \cdot \ell_\gamma(u)$ is the robust expectile loss typified by the asymmetric Huber loss, and $P(\beta)$ can be either convex or nonconvex penaltis, e.g., weighted $L_1$ penalty, elastic net, (sparse) group lasso penalty, SCAD penalty ([Fan & Li, 2001](https://www.tandfonline.com/doi/abs/10.1198/016214501753382273)), capped $L_1$ penalty and minimax concave penalty (MCP) ([Zhang, 2010](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-2/Nearly-unbiased-variable-selection-under-minimax-concave-penalty/10.1214/09-AOS729.full)).
+The iterative local adaptive majorize-minimize (ILAMM) algorithm is employed for computing robust expectile regression with convex penalties. Nonconvex penalties are handled by the local linear approximation (LLA) algorithm proposed by [Zou & Li (2008)](https://projecteuclid.org/journals/annals-of-statistics/volume-36/issue-4/One-step-sparse-estimates-in-nonconcave-penalized-likelihood-models/10.1214/009053607000000802.full).
